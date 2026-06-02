@@ -1,0 +1,58 @@
+{
+  "cleanUrls": true,
+  "rewrites": [
+    { "source": "/",                              "destination": "/index.html" },
+    { "source": "/about",                         "destination": "/Bitoreal_About_Page.html" },
+    { "source": "/contact",                       "destination": "/Bitoreal_Contact_Page.html" },
+    { "source": "/team",                          "destination": "/Bitoreal_Team_Page.html" },
+    { "source": "/careers",                       "destination": "/Bitoreal_Careers_Page.html" },
+    { "source": "/insights",                      "destination": "/Bitoreal_Insights_Page.html" },
+    { "source": "/privacy",                       "destination": "/Bitoreal_Privacy_Page.html" },
+    { "source": "/invest",                        "destination": "/Bitoreal_INVEST_Pillar.html" },
+    { "source": "/build",                         "destination": "/Bitoreal_BUILD_Pillar.html" },
+    { "source": "/manage",                        "destination": "/Bitoreal_MANAGE_Pillar.html" },
+    { "source": "/transform",                     "destination": "/Bitoreal_TRANSFORM_Pillar.html" },
+    { "source": "/digitize",                      "destination": "/Bitoreal_DIGITIZE_Pillar.html" },
+    { "source": "/invest/advisory",               "destination": "/Bitoreal_SVC_invest_advisory.html" },
+    { "source": "/invest/trading",                "destination": "/Bitoreal_SVC_invest_trading.html" },
+    { "source": "/invest/valuation",              "destination": "/Bitoreal_SVC_invest_valuation.html" },
+    { "source": "/build/construction",            "destination": "/Bitoreal_SVC_build_construction.html" },
+    { "source": "/build/supervision",             "destination": "/Bitoreal_SVC_build_supervision.html" },
+    { "source": "/build/engineering",             "destination": "/Bitoreal_SVC_build_engineering.html" },
+    { "source": "/build/materials",               "destination": "/Bitoreal_SVC_build_materials.html" },
+    { "source": "/build/planning",                "destination": "/Bitoreal_SVC_build_planning.html" },
+    { "source": "/manage/property-management",    "destination": "/Bitoreal_SVC_manage_property_management.html" },
+    { "source": "/manage/facility-management",    "destination": "/Bitoreal_SVC_manage_facility_management.html" },
+    { "source": "/manage/bms",                    "destination": "/Bitoreal_SVC_manage_bms.html" },
+    { "source": "/manage/legal-solutions",        "destination": "/Bitoreal_SVC_manage_legal_solutions.html" },
+    { "source": "/transform/interior-design",     "destination": "/Bitoreal_SVC_transform_interior_design.html" },
+    { "source": "/transform/smart-building",      "destination": "/Bitoreal_SVC_transform_smart_building.html" },
+    { "source": "/transform/green-building",      "destination": "/Bitoreal_SVC_transform_green_building.html" },
+    { "source": "/digitize/digital-marketing",    "destination": "/Bitoreal_SVC_digitize_digital_marketing.html" },
+    { "source": "/digitize/branding-events",      "destination": "/Bitoreal_SVC_digitize_branding_events.html" },
+    { "source": "/digitize/technology-consulting","destination": "/Bitoreal_SVC_digitize_technology_consulting.html" }
+  ],
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        { "key": "X-Content-Type-Options", "value": "nosniff" },
+        { "key": "X-Frame-Options",        "value": "SAMEORIGIN" },
+        { "key": "X-XSS-Protection",       "value": "1; mode=block" },
+        { "key": "Referrer-Policy",        "value": "strict-origin-when-cross-origin" }
+      ]
+    },
+    {
+      "source": "/(.*)\\.(png|jpg|jpeg|webp|svg|ico|woff2)",
+      "headers": [
+        { "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }
+      ]
+    },
+    {
+      "source": "/(.*)\\.html",
+      "headers": [
+        { "key": "Cache-Control", "value": "public, max-age=3600, must-revalidate" }
+      ]
+    }
+  ]
+}
