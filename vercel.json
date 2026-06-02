@@ -1,5 +1,4 @@
 {
-  "cleanUrls": true,
   "rewrites": [
     { "source": "/",                              "destination": "/index.html" },
     { "source": "/about",                         "destination": "/Bitoreal_About_Page.html" },
@@ -13,7 +12,7 @@
     { "source": "/manage",                        "destination": "/Bitoreal_MANAGE_Pillar.html" },
     { "source": "/transform",                     "destination": "/Bitoreal_TRANSFORM_Pillar.html" },
     { "source": "/digitize",                      "destination": "/Bitoreal_DIGITIZE_Pillar.html" },
-    { "source": "/invest/advisory",               "destination": "/Bitoreal_SVC_invest_advisory" },
+    { "source": "/invest/advisory",               "destination": "/Bitoreal_SVC_invest_advisory.html" },
     { "source": "/invest/trading",                "destination": "/Bitoreal_SVC_invest_trading.html" },
     { "source": "/invest/valuation",              "destination": "/Bitoreal_SVC_invest_valuation.html" },
     { "source": "/build/construction",            "destination": "/Bitoreal_SVC_build_construction.html" },
