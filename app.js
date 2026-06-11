@@ -28,9 +28,12 @@ function onScroll(){nw?.classList.toggle('s',window.scrollY>40)}
 function cd(){drw.classList.remove('open');ham?.classList.remove('open');ham?.setAttribute('aria-expanded','false');drw.setAttribute('aria-hidden','true');document.body.style.overflow=''}
 
 function checkFade(){
+    var bar=document.getElementById('tabsBar');
+    var wrap=document.getElementById('tabsWrap');
+    if(!bar||!wrap)return;
     var sl=bar.scrollLeft,sw=bar.scrollWidth,cw=bar.clientWidth;
-    wrap?.classList.toggle('fade-left',sl>8);
-    wrap?.classList.toggle('fade-right',sl<sw-cw-8);
+    wrap.classList.toggle('fade-left',sl>8);
+    wrap.classList.toggle('fade-right',sl<sw-cw-8);
   }
 
 function positionIndicator(tab){
