@@ -122,6 +122,28 @@ function restrictName(el){el.value=el.value.replace(/[^a-zA-Z\u0600-\u06FF\s'.-]
 
 function restrictPhone(el){el.value=el.value.replace(/[^0-9]/g,'');}
 
+function restrictBudget(el){var d=el.value.replace(/[^0-9]/g,'');el.value=d?Number(d).toLocaleString('en-US'):'';}
+
+var _SVC_MAP={
+  invest:['Investment Advisory','Real Estate Trading','Property Valuation & Appraisal'],
+  build:['Construction','Construction Supervision','Engineering Services','Materials Supply','Town Planning'],
+  manage:['Property Management','Facility Management','Building Management System','Legal Solutions'],
+  transform:['Interior Designing','Smart Building','Green Building'],
+  digitize:['Digital Marketing Solutions','Branding, Events & Physical Marketing','Tech Solutions & Setup']
+};
+function populateServices(pillar){
+  var wrap=document.getElementById('fsvcWrap');
+  var sel=document.getElementById('fsvc');
+  if(!wrap||!sel)return;
+  var list=_SVC_MAP[pillar];
+  if(!list){wrap.style.display='none';sel.innerHTML='<option value="">Select a service</option>';return;}
+  var html='<option value="">Select a service</option>';
+  for(var i=0;i<list.length;i++){html+='<option value="'+list[i]+'">'+list[i]+'</option>';}
+  sel.innerHTML=html;
+  wrap.style.display='';
+  wrap.style.animation='ferrIn .25s ease';
+}
+
 function restrictEmail(el){el.value=el.value.replace(/[^a-zA-Z0-9@._+\-]/g,'');}
 
 function genToken(prefix){var t=Date.now().toString(36).slice(-6).toUpperCase();var r=Math.random().toString(36).slice(2,4).toUpperCase();return prefix+'-'+t+r;}

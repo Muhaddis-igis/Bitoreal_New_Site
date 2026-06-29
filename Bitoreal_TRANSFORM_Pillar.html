@@ -24,9 +24,9 @@
 <meta name="author" content="Bitoreal">
 <meta name="theme-color" content="#254B5B" media="(prefers-color-scheme: light)">
 <meta name="theme-color" content="#0C1419" media="(prefers-color-scheme: dark)">
-<link rel="icon" href="/favicon-dark.svg" type="image/svg+xml">
-<link rel="icon" media="(prefers-color-scheme:dark)" href="/favicon-mid.svg" type="image/svg+xml">
-<link rel="apple-touch-icon" href="/favicon-dark.svg">
+<link rel="icon" href="favicon-dark.svg" type="image/svg+xml">
+<link rel="icon" media="(prefers-color-scheme:dark)" href="favicon-mid.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="favicon-dark.svg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,400;1,600&display=swap" rel="stylesheet">
@@ -350,7 +350,7 @@ img{display:block;max-width:100%}
 
 /* ═══ HERO ═══ */
 .hero{background:var(--d);padding:calc(var(--nav) + 48px) 0 56px;position:relative;overflow:hidden;min-height:580px}
-.hero-bg{position:absolute;inset:0;pointer-events:none;background:url('/Transform-Bitoreal.png') center/cover no-repeat;background:image-set(url('/Transform-Bitoreal.avif') type("image/avif"),url('/Transform-Bitoreal.webp') type("image/webp"),url('/Transform-Bitoreal.png') type("image/png")) center/cover no-repeat}
+.hero-bg{position:absolute;inset:0;pointer-events:none;background:url('Transform-Bitoreal.png') center/cover no-repeat;background:image-set(url('Transform-Bitoreal.avif') type("image/avif"),url('Transform-Bitoreal.webp') type("image/webp"),url('Transform-Bitoreal.png') type("image/png")) center/cover no-repeat}
 .hero-bg::after{content:'';position:absolute;top:0;left:0;right:0;height:140px;background:linear-gradient(180deg,rgba(8,14,18,.55) 0%,rgba(8,14,18,.2) 60%,transparent 100%);pointer-events:none}
 .hero-bg i{position:absolute;border-radius:50%}
 .hero-bg .g1{top:-20%;right:-10%;width:600px;height:600px;background:radial-gradient(circle,rgba(74,151,181,.15),transparent 65%);animation:heroFloat 12s ease-in-out infinite}
@@ -790,9 +790,9 @@ footer{background:var(--ink)}
 
 /* ═══ LOGO — Base64 embedded SVGs ═══ */
 .n-logo-w,.n-logo-c{position:absolute;top:0;left:0;width:160px;height:48px;background-repeat:no-repeat;background-position:left center;background-size:contain;display:block}
-.n-logo-w{background-image:url('/logo-white.svg')}
-.n-logo-c{background-image:url('/logo-color.svg')}
-.ft-logo-img{display:block;width:120px;height:32px;background:url('/logo-white.svg') no-repeat left center;background-size:contain}
+.n-logo-w{background-image:url('logo-white.svg')}
+.n-logo-c{background-image:url('logo-color.svg')}
+.ft-logo-img{display:block;width:120px;height:32px;background:url('logo-white.svg') no-repeat left center;background-size:contain}
 
 .sp-cta-acts{display:flex;gap:12px;flex-wrap:wrap}
 .sp-soon{font-size:12px;color:var(--sub);padding:10px 14px;background:var(--gold-bg);border:1px solid rgba(201,168,76,.2);border-radius:var(--r);margin-top:10px}
@@ -885,7 +885,7 @@ section[id],[id].anchor-target,main[id]{scroll-margin-top:calc(var(--nav) + 16px
 <style>
 /* ═══ SPACES THAT ELEVATE. <EM>LIVES THAT FOLLOW.</EM> PILLAR PAGE ═══ */
 .tr-hero{background:var(--d);padding:calc(var(--nav) + 64px) 0 72px;position:relative;overflow:hidden;min-height:500px}
-.tr-hero-bg{position:absolute;inset:0;background:url('/Transform-Bitoreal.png') center/cover no-repeat;background:image-set(url('/Transform-Bitoreal.avif') type("image/avif"),url('/Transform-Bitoreal.webp') type("image/webp"),url('/Transform-Bitoreal.png') type("image/png")) center/cover no-repeat}
+.tr-hero-bg{position:absolute;inset:0;background:url('Transform-Bitoreal.png') center/cover no-repeat;background:image-set(url('Transform-Bitoreal.avif') type("image/avif"),url('Transform-Bitoreal.webp') type("image/webp"),url('Transform-Bitoreal.png') type("image/png")) center/cover no-repeat}
 .tr-hero-bg::after{content:'';position:absolute;top:0;left:0;right:0;height:140px;background:linear-gradient(180deg,rgba(8,14,18,.55) 0%,transparent 100%)}
 .tr-hero-bg::before{content:'';position:absolute;top:0;left:0;right:0;height:140px;pointer-events:none;background:linear-gradient(180deg,rgba(8,14,18,.55) 0%,rgba(8,14,18,.2) 60%,transparent 100%)}
 .tr-hero-inner{position:relative;z-index:2;max-width:580px}
@@ -918,10 +918,10 @@ section[id],[id].anchor-target,main[id]{scroll-margin-top:calc(var(--nav) + 16px
 .tr-card-subs{display:flex;flex-direction:column;gap:5px;margin-bottom:18px;padding-top:12px;border-top:1px solid var(--bdr)}
 .tr-card-sub{display:flex;align-items:flex-start;gap:7px;font-size:12px;color:var(--sub)}
 .tr-card-sub-dot{width:4px;height:4px;background:var(--mid);border-radius:50%;margin-top:6px;flex-shrink:0}
-.tr-card-link{font-size:13px;font-weight:700;color:var(--mid);display:flex;align-items:center;gap:5px;transition:gap var(--t-fast);margin-top:auto}
-.tr-card:hover .tr-card-link{gap:8px}
+.tr-card-link{font-size:12.5px;font-weight:600;color:var(--mid-text);display:inline-flex;align-items:center;justify-content:center;gap:6px;padding:8px 16px;background:var(--bg2);border:1.5px solid var(--bdr);border-radius:var(--r);transition:all var(--t-fast);margin-top:auto;align-self:flex-start}
+.tr-card:hover .tr-card-link{gap:9px;color:#fff;background:var(--brand);border-color:var(--brand)}
 [data-theme="dark"] .tr-card{background:rgba(255,255,255,.03);border-color:rgba(255,255,255,.07)}
-[data-theme="dark"] .tr-card:hover{box-shadow:0 12px 40px rgba(0,0,0,.3)}
+[data-theme="dark"] .tr-card:hover{box-shadow:0 12px 40px rgba(0,0,0,.3)}[data-theme="dark"] .tr-card-link{color:var(--mid-text);background:var(--bg2);border-color:var(--bdr)}[data-theme="dark"] .tr-card:hover .tr-card-link{color:#0C1419;background:var(--mid);border-color:var(--mid)}
 [data-theme="dark"] .tr-card h3{color:#E8EEF1}
 [data-theme="dark"] .tr-card-subs{border-color:rgba(255,255,255,.08)}
 /* Why */
@@ -1129,7 +1129,7 @@ section[id],[id].anchor-target,main[id]{scroll-margin-top:calc(var(--nav) + 16px
 </script>
 </head>
 <body>
-<script src="/app.js"></script>
+<script src="app.js"></script>
 <script>document.documentElement.classList.add("js")</script>
 <a href="#main" class="skip">Skip to main content</a>
 <!-- ═══ NAV ═══ -->
@@ -1297,21 +1297,21 @@ section[id],[id].anchor-target,main[id]{scroll-margin-top:calc(var(--nav) + 16px
         <h3>Interior Designing</h3>
         <p>From concept to completion — spaces that reflect your taste and maximize property value. 3D visualization, full execution, furniture and décor procurement.</p>
         <div class="tr-card-subs"><div class="tr-card-sub"><span class="tr-card-sub-dot"></span>Concept development & 3D visualization</div><div class="tr-card-sub"><span class="tr-card-sub-dot"></span>Full interior execution & supervision</div><div class="tr-card-sub"><span class="tr-card-sub-dot"></span>Furniture & décor procurement</div><div class="tr-card-sub"><span class="tr-card-sub-dot"></span>Residential and commercial interiors</div></div>
-        <a href="/transform/interior-design" class="tr-card-link">Full Details →</a>
+        <a href="/transform/interior-design" class="tr-card-link">View Full Details →</a>
       </div>
       <div class="tr-card rv">
         <div class="tr-card-ico" aria-hidden="true">🏠</div>
         <h3>Smart Building</h3>
         <p>Automate your home or building — from lighting and climate control to security and energy management. Technology that works seamlessly in the background.</p>
         <div class="tr-card-subs"><div class="tr-card-sub"><span class="tr-card-sub-dot"></span>Complete home automation systems</div><div class="tr-card-sub"><span class="tr-card-sub-dot"></span>Smart lighting & climate control</div><div class="tr-card-sub"><span class="tr-card-sub-dot"></span>Integrated security & access control</div><div class="tr-card-sub"><span class="tr-card-sub-dot"></span>Energy monitoring & optimization</div></div>
-        <a href="/transform/smart-building" class="tr-card-link">Full Details →</a>
+        <a href="/transform/smart-building" class="tr-card-link">View Full Details →</a>
       </div>
       <div class="tr-card rv">
         <div class="tr-card-ico" aria-hidden="true">🌿</div>
         <h3>Green Building</h3>
         <p>Sustainable design and construction that reduces energy costs and environmental impact. Solar systems, energy audits, and green certification advisory.</p>
         <div class="tr-card-subs"><div class="tr-card-sub"><span class="tr-card-sub-dot"></span>Solar energy system installation</div><div class="tr-card-sub"><span class="tr-card-sub-dot"></span>Energy audit & efficiency planning</div><div class="tr-card-sub"><span class="tr-card-sub-dot"></span>Sustainable design & material advisory</div><div class="tr-card-sub"><span class="tr-card-sub-dot"></span>Green certification support</div></div>
-        <a href="/transform/green-building" class="tr-card-link">Full Details →</a>
+        <a href="/transform/green-building" class="tr-card-link">View Full Details →</a>
       </div></div>
   </div>
 </section>

@@ -24,9 +24,9 @@
 <meta name="author" content="Bitoreal">
 <meta name="theme-color" content="#254B5B" media="(prefers-color-scheme: light)">
 <meta name="theme-color" content="#0C1419" media="(prefers-color-scheme: dark)">
-<link rel="icon" href="/favicon-dark.svg" type="image/svg+xml">
-<link rel="icon" media="(prefers-color-scheme:dark)" href="/favicon-mid.svg" type="image/svg+xml">
-<link rel="apple-touch-icon" href="/favicon-dark.svg">
+<link rel="icon" href="favicon-dark.svg" type="image/svg+xml">
+<link rel="icon" media="(prefers-color-scheme:dark)" href="favicon-mid.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="favicon-dark.svg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,400;1,600&display=swap" rel="stylesheet">
@@ -148,7 +148,8 @@
 [data-theme="dark"] .sp-card:hover{border-color:rgba(107,181,208,.25);box-shadow:0 4px 20px rgba(0,0,0,.3)}
 [data-theme="dark"] .sp-card-name{color:var(--mid-text)}
 [data-theme="dark"] .sp-card-body{color:var(--sub)}
-[data-theme="dark"] .sp-card-link{color:var(--mid-text)}
+[data-theme="dark"] .sp-card-link{color:var(--mid-text);background:var(--bg2);border-color:var(--bdr)}
+[data-theme="dark"] .sp-card:hover .sp-card-link{color:#0C1419;background:var(--mid);border-color:var(--mid)}
 [data-theme="dark"] .sp-cta{border-color:var(--bdr);align-items:center}
 [data-theme="dark"] .proof{background:#162A35}
 [data-theme="dark"] .proof::before{background:none}
@@ -414,7 +415,7 @@ img{display:block;max-width:100%}
 
 /* ═══ HERO ═══ */
 .hero{background:var(--d);padding:calc(var(--nav) + 48px) 0 56px;position:relative;overflow:hidden;min-height:580px}
-.hero-bg{position:absolute;inset:0;pointer-events:none;background:url('/Homepage-Bitoreal.png') center/cover no-repeat;background:image-set(url('/Homepage-Bitoreal.avif') type("image/avif"),url('/Homepage-Bitoreal.webp') type("image/webp"),url('/Homepage-Bitoreal.png') type("image/png")) center/cover no-repeat}
+.hero-bg{position:absolute;inset:0;pointer-events:none;background:url('Homepage-Bitoreal.png') center/cover no-repeat;background:image-set(url('Homepage-Bitoreal.avif') type("image/avif"),url('Homepage-Bitoreal.webp') type("image/webp"),url('Homepage-Bitoreal.png') type("image/png")) center/cover no-repeat}
 .hero-bg::after{content:'';position:absolute;top:0;left:0;right:0;height:140px;background:linear-gradient(180deg,rgba(8,14,18,.55) 0%,rgba(8,14,18,.2) 60%,transparent 100%);pointer-events:none}
 .hero-bg i{position:absolute;border-radius:50%}
 .hero-bg .g1{top:-20%;right:-10%;width:600px;height:600px;background:radial-gradient(circle,rgba(74,151,181,.15),transparent 65%);animation:heroFloat 12s ease-in-out infinite}
@@ -494,8 +495,8 @@ img{display:block;max-width:100%}
 .sp-card:hover .sp-card-ico{transform:scale(1.2) rotate(-5deg)}
 .sp-card-name{font-size:14px;font-weight:700;color:var(--brand)}
 .sp-card-body{font-size:13px;color:var(--sub);line-height:1.65}
-.sp-card-link{display:inline-flex;align-items:center;gap:4px;margin-top:10px;font-size:12px;font-weight:600;color:var(--mid-text);transition:gap var(--t-fast),color var(--t-fast)}
-.sp-card:hover .sp-card-link{gap:8px;color:var(--brand)}
+.sp-card-link{display:inline-flex;align-items:center;justify-content:center;gap:6px;margin-top:14px;padding:8px 16px;font-size:12.5px;font-weight:600;color:var(--mid-text);background:var(--bg2);border:1.5px solid var(--bdr);border-radius:var(--r);transition:all var(--t-fast)}
+.sp-card:hover .sp-card-link{gap:9px;color:#fff;background:var(--brand);border-color:var(--brand)}
 .sp-cta{margin-top:24px;padding-top:20px;border-top:1px solid var(--bdr);display:flex;align-items:center;gap:16px;flex-wrap:wrap}
 
 /* ═══ PROOF — Interactive Infographic Section ═══ */
@@ -855,9 +856,9 @@ footer{background:var(--ink)}
 
 /* ═══ LOGO — Base64 embedded SVGs ═══ */
 .n-logo-w,.n-logo-c{position:absolute;top:0;left:0;width:160px;height:48px;background-repeat:no-repeat;background-position:left center;background-size:contain;display:block}
-.n-logo-w{background-image:url('/logo-white.svg')}
-.n-logo-c{background-image:url('/logo-color.svg')}
-.ft-logo-img{display:block;width:120px;height:32px;background:url('/logo-white.svg') no-repeat left center;background-size:contain}
+.n-logo-w{background-image:url('logo-white.svg')}
+.n-logo-c{background-image:url('logo-color.svg')}
+.ft-logo-img{display:block;width:120px;height:32px;background:url('logo-white.svg') no-repeat left center;background-size:contain}
 
 .sp-cta-acts{display:flex;gap:12px;flex-wrap:wrap}
 .sp-soon{font-size:12px;color:var(--sub);padding:10px 14px;background:var(--gold-bg);border:1px solid rgba(201,168,76,.2);border-radius:var(--r);margin-top:10px}
@@ -931,6 +932,18 @@ footer{background:var(--ink)}
 .phone-wrap.err{border-color:var(--err)!important;margin-bottom:0!important}
 [data-theme="dark"] .phone-wrap.err{border-color:var(--err)!important;margin-bottom:0!important}
 [data-theme="dark"] .phone-wrap:focus-within{border-color:var(--mid);box-shadow:0 0 0 3px rgba(74,151,181,.12)}
+.budget-wrap{display:flex;align-items:stretch;gap:0;border:1.5px solid var(--bdr);border-radius:var(--r);overflow:hidden;transition:border-color var(--t-fast),box-shadow var(--t-fast);background:var(--bg2)}
+.budget-wrap:focus-within{border-color:var(--mid);box-shadow:0 0 0 3px rgba(74,151,181,.12)}
+.budget-cur{display:flex;align-items:center;gap:5px;padding:0 10px;background:var(--bg2);border-right:1px solid var(--bdr);cursor:pointer;white-space:nowrap;min-width:96px;position:relative;flex-shrink:0}
+.budget-cur select{position:absolute;inset:0;opacity:0;cursor:pointer;width:100%;height:100%;font-size:14px}
+.budget-cur-flag{font-size:16px;line-height:1}
+.budget-cur-code{font-size:13px;font-weight:600;color:var(--txt)}
+.budget-cur-arr{font-size:9px;color:var(--sub)}
+.budget-amt{flex:1!important;width:auto!important;padding:11px 14px!important;border:none!important;border-radius:0!important;background:transparent!important;margin:0!important;font-size:14px!important;font-family:var(--sans)!important;color:var(--txt)!important;outline:none!important;min-width:0;transition:none!important;-webkit-appearance:none!important}
+.budget-amt::placeholder{color:rgba(107,114,128,.5)!important}
+.budget-hint{display:block;margin-top:6px;font-size:11.5px;color:var(--sub);line-height:1.4}
+[data-theme="dark"] .budget-wrap{background:rgba(12,20,25,.6);border-color:var(--bdr)}
+[data-theme="dark"] .budget-wrap:focus-within{border-color:var(--mid);box-shadow:0 0 0 3px rgba(74,151,181,.12)}
 
 .phone-num::placeholder{color:rgba(107,114,128,.5)!important}
 [data-theme="dark"] .phone-num{color:var(--txt)!important}
@@ -949,7 +962,7 @@ section[id],[id].anchor-target,main[id]{scroll-margin-top:calc(var(--nav) + 16px
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/lipis/flag-icons@6.6.6/css/flag-icons.min.css">
 </head>
 <body>
-<script src="/app.js"></script>
+<script src="app.js"></script>
 <script>document.documentElement.classList.add("js")</script>
 <a href="#main" class="skip">Skip to main content</a>
 
@@ -1155,22 +1168,22 @@ section[id],[id].anchor-target,main[id]{scroll-margin-top:calc(var(--nav) + 16px
           <div class="sp-card">
             <div class="sp-card-head"><span class="sp-card-ico" aria-hidden="true">📊</span><span class="sp-card-name">Investment Advisory</span></div>
             <p class="sp-card-body">Personalized investment strategy and planning, portfolio management, market research and intelligence reports, environmental sustainability consultancy, and cross-service financial advisory. We analyze your goals and recommend only what genuinely serves them.</p>
-            <a href="/invest/advisory" class="sp-card-link">Details <span>→</span></a>
+            <a href="/invest/advisory" class="sp-card-link">View Full Details <span>→</span></a>
           </div>
           <div class="sp-card">
             <div class="sp-card-head"><span class="sp-card-ico" aria-hidden="true">🏠</span><span class="sp-card-name">Real Estate Trading</span></div>
             <p class="sp-card-body">End-to-end buying, selling, and merging of residential, commercial, industrial, and agricultural properties. Pool investments for collective high-value opportunities. Authorized sales partner with Gulf's top developers — Emaar, ROSHN, Qatari Diar, Omran &amp; more. Site visits on your behalf for overseas clients.</p>
-            <a href="/invest/trading" class="sp-card-link">Details <span>→</span></a>
+            <a href="/invest/trading" class="sp-card-link">View Full Details <span>→</span></a>
           </div>
           <div class="sp-card">
             <div class="sp-card-head"><span class="sp-card-ico" aria-hidden="true">📋</span><span class="sp-card-name">Property Valuation & Appraisal</span></div>
             <p class="sp-card-body">Independent market valuation reports, comparative market analysis (CMA), and bank and insurance valuation support. Essential before buying, selling, financing, or insuring any property.</p>
-            <a href="/invest/valuation" class="sp-card-link">Details <span>→</span></a>
+            <a href="/invest/valuation" class="sp-card-link">View Full Details <span>→</span></a>
           </div>
         </div>
         <div class="sp-cta">
-          <a href="#form" class="btn bp">Get Investment Strategy <span class="a">→</span></a>
-          <a href="/invest" class="btn bod">Explore INVEST Services</a>
+          <a href="#form" class="btn bp">Book INVEST Consultation <span class="a">→</span></a>
+          <a href="/invest" class="btn bod">Explore All INVEST Services <span class="a">→</span></a>
         </div>
       </div>
 
@@ -1184,32 +1197,32 @@ section[id],[id].anchor-target,main[id]{scroll-margin-top:calc(var(--nav) + 16px
           <div class="sp-card">
             <div class="sp-card-head"><span class="sp-card-ico" aria-hidden="true">🧱</span><span class="sp-card-name">Construction</span></div>
             <p class="sp-card-body">Grey structure, turnkey construction (design to keys), and renovation and remodeling. Signed scope document, dedicated project manager from day one, weekly progress reports, zero tolerance for material substitution.</p>
-            <a href="/build/construction" class="sp-card-link">Details <span>→</span></a>
+            <a href="/build/construction" class="sp-card-link">View Full Details <span>→</span></a>
           </div>
           <div class="sp-card">
             <div class="sp-card-head"><span class="sp-card-ico" aria-hidden="true">👁️</span><span class="sp-card-name">Construction Supervision</span></div>
             <p class="sp-card-body">Already have a contractor? We provide independent third-party monitoring — site visits with progress reports, quality inspection and checkpoints, material usage auditing, and contractor performance evaluation.</p>
-            <a href="/build/supervision" class="sp-card-link">Details <span>→</span></a>
+            <a href="/build/supervision" class="sp-card-link">View Full Details <span>→</span></a>
           </div>
           <div class="sp-card">
             <div class="sp-card-head"><span class="sp-card-ico" aria-hidden="true">📐</span><span class="sp-card-name">Engineering Services</span></div>
             <p class="sp-card-body">Architecture and structural design, plumbing and electrical drawings, and photorealistic 2D/3D and VR/AR visualization — see your building before the first brick is laid. Approval-ready drawings included.</p>
-            <a href="/build/engineering" class="sp-card-link">Details <span>→</span></a>
+            <a href="/build/engineering" class="sp-card-link">View Full Details <span>→</span></a>
           </div>
           <div class="sp-card">
             <div class="sp-card-head"><span class="sp-card-ico" aria-hidden="true">📦</span><span class="sp-card-name">Materials</span></div>
             <p class="sp-card-body">Professional material procurement and direct supply of all construction and finishing materials — cement, steel, tiles, marble, sanitary ware, fittings — at trade prices from verified suppliers. No markup, no substitution.</p>
-            <a href="/build/materials" class="sp-card-link">Details <span>→</span></a>
+            <a href="/build/materials" class="sp-card-link">View Full Details <span>→</span></a>
           </div>
           <div class="sp-card">
             <div class="sp-card-head"><span class="sp-card-ico" aria-hidden="true">🗺️</span><span class="sp-card-name">Town Planning</span></div>
             <p class="sp-card-body">Master planning for residential and commercial developments — built-up area and open space planning, communication and transportation layout, public amenities, utility services, and development authority approvals.</p>
-            <a href="/build/planning" class="sp-card-link">Details <span>→</span></a>
+            <a href="/build/planning" class="sp-card-link">View Full Details <span>→</span></a>
           </div>
         </div>
         <div class="sp-cta">
-          <a href="#form" class="btn bp">Get Construction Quote <span class="a">→</span></a>
-          <a href="/build" class="btn bod">Explore BUILD Services</a>
+          <a href="#form" class="btn bp">Book BUILD Consultation <span class="a">→</span></a>
+          <a href="/build" class="btn bod">Explore All BUILD Services <span class="a">→</span></a>
         </div>
       </div>
 
@@ -1223,27 +1236,27 @@ section[id],[id].anchor-target,main[id]{scroll-margin-top:calc(var(--nav) + 16px
           <div class="sp-card">
             <div class="sp-card-head"><span class="sp-card-ico" aria-hidden="true">🔑</span><span class="sp-card-name">Property Management</span></div>
             <p class="sp-card-body">Tenant acquisition through marketing and branding, rent collection, repair and maintenance coordination, insurance advisory, and monthly income reporting. Fully hands-off property income for you.</p>
-            <a href="/manage/property-management" class="sp-card-link">Details <span>→</span></a>
+            <a href="/manage/property-management" class="sp-card-link">View Full Details <span>→</span></a>
           </div>
           <div class="sp-card">
             <div class="sp-card-head"><span class="sp-card-ico" aria-hidden="true">🏢</span><span class="sp-card-name">Facility Management</span></div>
             <p class="sp-card-body">Day-to-day building operations — janitorial and cleaning coordination, security staff management, common area and parking management, and waste disposal. For commercial buildings, plazas, and apartment complexes.</p>
-            <a href="/manage/facility-management" class="sp-card-link">Details <span>→</span></a>
+            <a href="/manage/facility-management" class="sp-card-link">View Full Details <span>→</span></a>
           </div>
           <div class="sp-card">
             <div class="sp-card-head"><span class="sp-card-ico" aria-hidden="true">⚙️</span><span class="sp-card-name">Building Management System (BMS)</span></div>
             <p class="sp-card-body">Full lifecycle — BMS installation and commissioning, HVAC management, fire safety systems, energy analytics and optimization, and access control and security integration. From deployment to ongoing management.</p>
-            <a href="/manage/bms" class="sp-card-link">Details <span>→</span></a>
+            <a href="/manage/bms" class="sp-card-link">View Full Details <span>→</span></a>
           </div>
           <div class="sp-card">
             <div class="sp-card-head"><span class="sp-card-ico" aria-hidden="true">⚖️</span><span class="sp-card-name">Legal Solutions</span></div>
             <p class="sp-card-body">Property vetting before purchase, transaction and taxation documentation, tenancy agreements, and litigation support — complete legal protection for every real estate decision you make.</p>
-            <a href="/manage/legal-solutions" class="sp-card-link">Details <span>→</span></a>
+            <a href="/manage/legal-solutions" class="sp-card-link">View Full Details <span>→</span></a>
           </div>
         </div>
         <div class="sp-cta">
-          <a href="#form" class="btn bp">Get Management Quote <span class="a">→</span></a>
-          <a href="/manage" class="btn bod">Explore MANAGE Services</a>
+          <a href="#form" class="btn bp">Book MANAGE Consultation <span class="a">→</span></a>
+          <a href="/manage" class="btn bod">Explore All MANAGE Services <span class="a">→</span></a>
         </div>
       </div>
 
@@ -1257,22 +1270,22 @@ section[id],[id].anchor-target,main[id]{scroll-margin-top:calc(var(--nav) + 16px
           <div class="sp-card">
             <div class="sp-card-head"><span class="sp-card-ico" aria-hidden="true">🎨</span><span class="sp-card-name">Interior Designing</span></div>
             <p class="sp-card-body">Floor planning, design consultation including outdoor spaces and landscaping, 3D visualization, VR walkthroughs, and furniture and accessories sourcing — see your complete space before work begins.</p>
-            <a href="/transform/interior-design" class="sp-card-link">Details <span>→</span></a>
+            <a href="/transform/interior-design" class="sp-card-link">View Full Details <span>→</span></a>
           </div>
           <div class="sp-card">
             <div class="sp-card-head"><span class="sp-card-ico" aria-hidden="true">🏡</span><span class="sp-card-name">Smart Building</span></div>
             <p class="sp-card-body">Smart appliances, smart security system installation, and complete home automation — lighting, climate, security, entertainment. Installed from verified global brands. Control your home from anywhere.</p>
-            <a href="/transform/smart-building" class="sp-card-link">Details <span>→</span></a>
+            <a href="/transform/smart-building" class="sp-card-link">View Full Details <span>→</span></a>
           </div>
           <div class="sp-card">
             <div class="sp-card-head"><span class="sp-card-ico" aria-hidden="true">🌿</span><span class="sp-card-name">Green Building</span></div>
             <p class="sp-card-body">Rainwater harvesting, active and passive solar power systems, and sustainable design and construction. Reduce utility bills, increase property value, and build with the future in mind.</p>
-            <a href="/transform/green-building" class="sp-card-link">Details <span>→</span></a>
+            <a href="/transform/green-building" class="sp-card-link">View Full Details <span>→</span></a>
           </div>
         </div>
         <div class="sp-cta">
-          <a href="#form" class="btn bp">Book Design Consultation <span class="a">→</span></a>
-          <a href="/transform" class="btn bod">Explore TRANSFORM Services</a>
+          <a href="#form" class="btn bp">Book TRANSFORM Consultation <span class="a">→</span></a>
+          <a href="/transform" class="btn bod">Explore All TRANSFORM Services <span class="a">→</span></a>
         </div>
       </div>
 
@@ -1286,23 +1299,23 @@ section[id],[id].anchor-target,main[id]{scroll-margin-top:calc(var(--nav) + 16px
           <div class="sp-card">
             <div class="sp-card-head"><span class="sp-card-ico" aria-hidden="true">📱</span><span class="sp-card-name">Digital Marketing Solutions</span></div>
             <p class="sp-card-body">Social media management, property photography and videography, online advertising across Google, Facebook, and Property Portals, and SEO and content marketing — full digital presence for real estate businesses.</p>
-            <a href="/digitize/digital-marketing" class="sp-card-link">Details <span>→</span></a>
+            <a href="/digitize/digital-marketing" class="sp-card-link">View Full Details <span>→</span></a>
           </div>
           <div class="sp-card">
             <div class="sp-card-head"><span class="sp-card-ico" aria-hidden="true">📄</span><span class="sp-card-name">Branding, Events & Physical Marketing</span></div>
             <p class="sp-card-body">Brand identity and print collateral, outdoor promotional booths and exhibition stalls, corporate event management for real estate launches and ballotings, and targeted door-to-door distribution.</p>
-            <a href="/digitize/branding-events" class="sp-card-link">Details <span>→</span></a>
+            <a href="/digitize/branding-events" class="sp-card-link">View Full Details <span>→</span></a>
           </div>
           <div class="sp-card">
             <div class="sp-card-head"><span class="sp-card-ico" aria-hidden="true">⚡</span><span class="sp-card-name">Tech Solutions & Setup</span></div>
             <p class="sp-card-body">Website development for real estate businesses, CRM and lead management system setup, property inventory system configuration, and digital workflow and process design. Technology that works — without needing a tech team.</p>
-            <a href="/digitize/technology-consulting" class="sp-card-link">Details <span>→</span></a>
+            <a href="/digitize/technology-consulting" class="sp-card-link">View Full Details <span>→</span></a>
           </div>
         </div>
         <div class="sp-cta">
           <div class="sp-cta-acts">
-            <a href="#form" class="btn bp">Explore Digital Services <span class="a">→</span></a>
-            <a href="/digitize" class="btn bod">Explore DIGITIZE Services</a>
+            <a href="#form" class="btn bp">Book DIGITIZE Consultation <span class="a">→</span></a>
+            <a href="/digitize" class="btn bod">Explore All DIGITIZE Services <span class="a">→</span></a>
           </div>
           <p class="sp-soon">🔮 <strong class="sp-soon-label">Coming soon:</strong> Custom client portal, construction progress tracking app, and mobile app for clients. <a href="/digitize/technology-consulting" class="sp-soon-link">Register for early access →</a></p>
         </div>
@@ -1660,13 +1673,20 @@ section[id],[id].anchor-target,main[id]{scroll-margin-top:calc(var(--nav) + 16px
             <div class="fg">
               <label class="fl" id="nlbl">How can we help? <span class="rq">*</span></label>
               <div class="rg" role="radiogroup" aria-labelledby="nlbl">
-                <label class="rc"><input type="radio" name="need" value="invest"> 🗂️ Invest in property</label>
-                <label class="rc"><input type="radio" name="need" value="build"> 🏗️ Build or renovate</label>
-                <label class="rc"><input type="radio" name="need" value="manage"> ⚡ Manage my property</label>
-                <label class="rc"><input type="radio" name="need" value="transform"> ✨ Design my space</label>
-                <label class="rc"><input type="radio" name="need" value="other"> 🤷 General advice</label>
+                <label class="rc"><input type="radio" name="need" value="invest" onchange="populateServices('invest')"> 🗂️ Invest in property</label>
+                <label class="rc"><input type="radio" name="need" value="build" onchange="populateServices('build')"> 🏗️ Build or renovate</label>
+                <label class="rc"><input type="radio" name="need" value="manage" onchange="populateServices('manage')"> ⚡ Manage my property</label>
+                <label class="rc"><input type="radio" name="need" value="transform" onchange="populateServices('transform')"> ✨ Design my space</label>
+                <label class="rc"><input type="radio" name="need" value="digitize" onchange="populateServices('digitize')"> 💻 Market or digitize</label>
+                <label class="rc"><input type="radio" name="need" value="other" onchange="populateServices('other')"> 🤷 General advice</label>
               </div>
               <span class="ferr" id="en2" role="alert">Please select one.</span>
+            </div>
+            <div class="fg svc-select-fg" id="fsvcWrap" style="display:none">
+              <label class="fl" for="fsvc">Which service? <span class="f-opt">(Optional)</span></label>
+              <select id="fsvc" class="fsel">
+                <option value="">Select a service</option>
+              </select>
             </div>
             <button type="button" class="f-sub" onclick="gs2()">Continue →</button>
             <p class="f-or">Or <a href="https://wa.me/923070777007?text=Assalamu%20Alaikum%2C%20I%27d%20like%20to%20know%20about%20Bitoreal." target="_blank" rel="noopener noreferrer">WhatsApp us directly →</a></p>
@@ -1689,14 +1709,33 @@ section[id],[id].anchor-target,main[id]{scroll-margin-top:calc(var(--nav) + 16px
               <span class="ferr" id="el" role="alert">Select your location.</span>
             </div>
             <div class="fg">
-              <label class="fl" id="blbl">Budget</label>
-              <div class="rg" role="radiogroup" aria-labelledby="blbl">
-                <label class="rc"><input type="radio" name="budget" value="u50">Under 50 Lakh</label>
-                <label class="rc"><input type="radio" name="budget" value="50-1">50L – 1 Crore</label>
-                <label class="rc"><input type="radio" name="budget" value="1-5">1 – 5 Crore</label>
-                <label class="rc"><input type="radio" name="budget" value="5+">5+ Crore <span class="gold-tag">★ Priority</span></label>
-                <label class="rc"><input type="radio" name="budget" value="pvt">Discuss privately</label>
+              <label class="fl" for="fbAmt">Estimated Budget <span class="f-opt">(Optional)</span></label>
+              <div class="budget-wrap" id="fbWrap">
+                <div class="budget-cur">
+                  <span class="budget-cur-flag" id="fbcurFlag">🇵🇰</span>
+                  <span class="budget-cur-code" id="fbcurCodeNum">PKR</span>
+                  <span class="budget-cur-arr">▾</span>
+                  <select id="fbcurCode" aria-label="Currency" onchange="updatePhoneCode('fbcur')">
+                    <option value="PKR" data-flag="🇵🇰" selected>🇵🇰 PKR — Pakistani Rupee</option>
+                    <option value="USD" data-flag="🇺🇸">🇺🇸 USD — US Dollar</option>
+                    <option value="AED" data-flag="🇦🇪">🇦🇪 AED — UAE Dirham</option>
+                    <option value="SAR" data-flag="🇸🇦">🇸🇦 SAR — Saudi Riyal</option>
+                    <option value="QAR" data-flag="🇶🇦">🇶🇦 QAR — Qatari Riyal</option>
+                    <option value="OMR" data-flag="🇴🇲">🇴🇲 OMR — Omani Rial</option>
+                    <option value="BHD" data-flag="🇧🇭">🇧🇭 BHD — Bahraini Dinar</option>
+                    <option value="KWD" data-flag="🇰🇼">🇰🇼 KWD — Kuwaiti Dinar</option>
+                    <option value="GBP" data-flag="🇬🇧">🇬🇧 GBP — British Pound</option>
+                    <option value="EUR" data-flag="🇪🇺">🇪🇺 EUR — Euro</option>
+                    <option value="CAD" data-flag="🇨🇦">🇨🇦 CAD — Canadian Dollar</option>
+                    <option value="AUD" data-flag="🇦🇺">🇦🇺 AUD — Australian Dollar</option>
+                    <option value="MYR" data-flag="🇲🇾">🇲🇾 MYR — Malaysian Ringgit</option>
+                    <option value="ZAR" data-flag="🇿🇦">🇿🇦 ZAR — South African Rand</option>
+                    <option value="NOK" data-flag="🇳🇴">🇳🇴 NOK — Norwegian Krone</option>
+                  </select>
+                </div>
+                <input class="fi budget-amt" id="fbAmt" type="text" inputmode="numeric" placeholder="e.g. 5,000,000" autocomplete="off" oninput="restrictBudget(this)">
               </div>
+              <span class="budget-hint">Numbers only. Leave blank if you'd prefer to discuss it with us.</span>
             </div>
             <div class="fg">
               <label class="fl" for="fm">Anything specific? <span class="f-opt">(Optional)</span></label>
@@ -2025,7 +2064,7 @@ function sf(){
   (function(){var el=document.getElementById('fe'),em=document.getElementById('ee');var b=!el||!/^[^\s@]+@[^\s@]+\.[\S]+$/.test(el.value.trim());el&&el.classList.toggle('err',b);if(em)em.classList.toggle('show',b);if(b)_ok=false;})();
   (function(){var el=document.getElementById('fl2'),em=document.getElementById('el');var b=!el||!el.value.trim();el&&el.classList.toggle('err',b);if(em)em.classList.toggle('show',b);if(b)_ok=false;})();
   if(!_ok)return;
-  (function(){var _m={'invest':'HOM-INV','build':'HOM-BLD','manage':'HOM-MGT','transform':'HOM-TRF','other':'HOM-GEN'};var _nd=document.querySelector('input[name="need"]:checked');var _p=_nd?(_m[_nd.value]||'HOM-GEN'):'HOM-GEN';var _tok=genToken(_p);var _e=document.getElementById('fref');if(_e)_e.textContent=_tok;submitToApi({token:_tok,_successId:'fok',_formWrapId:'',_errId:'fSubmitErr',name:document.getElementById('fn')?.value.trim()||'',phone:document.getElementById('fp')?.value.trim()||'',countryCode:document.getElementById('fpCode')?.value||'+92',email:document.getElementById('fe')?.value.trim()||'',city:document.getElementById('fl2')?.value||'',service:_nd?_nd.value:'',source:'Homepage'});})();
+  (function(){var _m={'invest':'HOM-INV','build':'HOM-BLD','manage':'HOM-MGT','transform':'HOM-TRF','digitize':'HOM-DIG','other':'HOM-GEN'};var _nd=document.querySelector('input[name="need"]:checked');var _p=_nd?(_m[_nd.value]||'HOM-GEN'):'HOM-GEN';var _tok=genToken(_p);var _e=document.getElementById('fref');if(_e)_e.textContent=_tok;var _bAmt=(document.getElementById('fbAmt')?.value||'').replace(/[^0-9]/g,'');var _bCur=document.getElementById('fbcurCode')?.value||'PKR';submitToApi({token:_tok,_successId:'fok',_formWrapId:'',_errId:'fSubmitErr',name:document.getElementById('fn')?.value.trim()||'',phone:document.getElementById('fp')?.value.trim()||'',countryCode:document.getElementById('fpCode')?.value||'+92',email:document.getElementById('fe')?.value.trim()||'',city:document.getElementById('fl2')?.value||'',service:_nd?_nd.value:'',serviceDetail:document.getElementById('fsvc')?.value||'',budget:_bAmt?(_bCur+' '+Number(_bAmt).toLocaleString('en-US')):'Not specified',source:'Homepage'});})();
   document.getElementById('s2')?.classList.remove('active');
   var _svcMap={'buy':'Property Purchase','sell':'Property Sale','build':'Construction Project','invest':'Investment Advisory','manage':'Property Management','other':'Real Estate'};
   var _selSvc=document.querySelector('input[name="stype"]:checked');
