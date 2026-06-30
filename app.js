@@ -148,7 +148,20 @@ function restrictEmail(el){el.value=el.value.replace(/[^a-zA-Z0-9@._+\-]/g,'');}
 
 function genToken(prefix){var t=Date.now().toString(36).slice(-6).toUpperCase();var r=Math.random().toString(36).slice(2,4).toUpperCase();return prefix+'-'+t+r;}
 
-function submitToApi(data){var _key='b6f4a7e7-b7dd-4ea7-b7d7-a9a5f0631e55';var _suc=data._successId,_wrap=data._formWrapId,_err=data._errId;var payload={access_key:_key,subject:'New Bitoreal Request ['+(data.token||'')+'] - '+(data.service||data.source||'Inquiry'),from_name:(data.name||'Website Visitor'),botcheck:data._botcheck||'',token:data.token||'',name:data.name||'',phone:(data.countryCode||'+92')+' '+(data.phone||''),email:data.email||'Not provided',service:data.service||'N/A',city:data.city||'N/A',message:data.message||'N/A',source:data.source||''};fetch('https://api.web3forms.com/submit',{method:'POST',headers:{'Content-Type':'application/json',Accept:'application/json'},body:JSON.stringify(payload)}).then(function(r){return r.json();}).then(function(j){if(!(j&&j.success))throw new Error('fail');}).catch(function(){if(_suc){var s=document.getElementById(_suc);if(s)s.classList.remove('show');}if(_wrap){var w=document.getElementById(_wrap);if(w)w.style.display='';}if(_err){var e=document.getElementById(_err);if(e)e.style.display='block';}else{alert('Sorry, we could not send your request. Please WhatsApp us at +92 307 0777 007 or try again.');}});}
+function submitToApi(data){var _key='b6f4a7e7-b7dd-4ea7-b7d7-a9a5f0631e55';var _suc=data._successId,_wrap=data._formWrapId,_err=data._errId;
+  // Friendly labels for known fields; order preserved for the email body
+  var _labels={token:'Token',name:'Name',phone:'Phone',email:'Email',service:'Service',serviceDetail:'Specific Service',budget:'Estimated Budget',city:'City',role:'Role / Position',message:'Message',source:'Source'};
+  var _order=['token','name','phone','email','service','serviceDetail','budget','city','role','message','source'];
+  var payload={access_key:_key,subject:'New Bitoreal Request ['+(data.token||'')+'] - '+(data.serviceDetail||data.service||data.source||'Inquiry'),from_name:(data.name||'Website Visitor'),botcheck:data._botcheck||''};
+  // Build phone with country code
+  var _phone=(data.countryCode||'+92')+' '+(data.phone||'');
+  // Forward ordered known fields (only if the form provided them)
+  for(var i=0;i<_order.length;i++){var k=_order[i];if(k==='phone'){if(data.phone!==undefined)payload['Phone']=_phone;continue;}
+    if(data[k]!==undefined&&data[k]!==''&&data[k]!==null){payload[_labels[k]]=data[k];}}
+  // Forward any extra custom fields the caller added that aren't internal (_*) or already handled
+  var _handled={countryCode:1,_successId:1,_formWrapId:1,_errId:1,_botcheck:1,phone:1};
+  for(var key in data){if(data.hasOwnProperty(key)&&key.charAt(0)!=='_'&&!_handled[key]&&!_labels[key]&&data[key]!==''&&data[key]!=null){var _lbl=key.charAt(0).toUpperCase()+key.slice(1).replace(/([A-Z])/g,' $1');payload[_lbl]=data[key];}}
+  fetch('https://api.web3forms.com/submit',{method:'POST',headers:{'Content-Type':'application/json',Accept:'application/json'},body:JSON.stringify(payload)}).then(function(r){return r.json();}).then(function(j){if(!(j&&j.success))throw new Error('fail');}).catch(function(){if(_suc){var s=document.getElementById(_suc);if(s)s.classList.remove('show');}if(_wrap){var w=document.getElementById(_wrap);if(w)w.style.display='';}if(_err){var e=document.getElementById(_err);if(e)e.style.display='block';}else{alert('Sorry, we could not send your request. Please WhatsApp us at +92 307 0777 007 or try again.');}});}
 
 function updatePhoneCode(id){
   var s=document.getElementById(id+'Code');

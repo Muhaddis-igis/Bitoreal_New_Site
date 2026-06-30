@@ -2066,13 +2066,14 @@ function sf(){
   if(!_ok)return;
   (function(){var _m={'invest':'HOM-INV','build':'HOM-BLD','manage':'HOM-MGT','transform':'HOM-TRF','digitize':'HOM-DIG','other':'HOM-GEN'};var _nd=document.querySelector('input[name="need"]:checked');var _p=_nd?(_m[_nd.value]||'HOM-GEN'):'HOM-GEN';var _tok=genToken(_p);var _e=document.getElementById('fref');if(_e)_e.textContent=_tok;var _bAmt=(document.getElementById('fbAmt')?.value||'').replace(/[^0-9]/g,'');var _bCur=document.getElementById('fbcurCode')?.value||'PKR';submitToApi({token:_tok,_successId:'fok',_formWrapId:'',_errId:'fSubmitErr',name:document.getElementById('fn')?.value.trim()||'',phone:document.getElementById('fp')?.value.trim()||'',countryCode:document.getElementById('fpCode')?.value||'+92',email:document.getElementById('fe')?.value.trim()||'',city:document.getElementById('fl2')?.value||'',service:_nd?_nd.value:'',serviceDetail:document.getElementById('fsvc')?.value||'',budget:_bAmt?(_bCur+' '+Number(_bAmt).toLocaleString('en-US')):'Not specified',source:'Homepage'});})();
   document.getElementById('s2')?.classList.remove('active');
-  var _svcMap={'buy':'Property Purchase','sell':'Property Sale','build':'Construction Project','invest':'Investment Advisory','manage':'Property Management','other':'Real Estate'};
-  var _selSvc=document.querySelector('input[name="stype"]:checked');
-  var _svcLabel=_selSvc?_svcMap[_selSvc.value]||'Real Estate':'Real Estate';
+  var _svcMap={'invest':'Investment','build':'Construction','manage':'Property Management','transform':'Design & Transformation','digitize':'Digital & Marketing','other':'Real Estate'};
+  var _selSvc=document.querySelector('input[name="need"]:checked');
+  var _detail=document.getElementById('fsvc')?.value||'';
+  var _svcLabel=_detail?_detail:(_selSvc?_svcMap[_selSvc.value]||'Real Estate':'Real Estate');
   var _fokH=document.getElementById('fokH');
   var _fokSvc=document.getElementById('fokSvc');
   if(_fokH)_fokH.textContent=_svcLabel+' Request Confirmed.';
-  if(_fokSvc)_fokSvc.textContent=_svcLabel.toLowerCase()+' request';
+  if(_fokSvc)_fokSvc.textContent=_detail?(_detail+' request'):(_svcLabel.toLowerCase()+' request');
   document.getElementById('fok')?.classList.add('show');
 }
 var _fn=document.getElementById('fn');if(_fn)_fn?.addEventListener('blur',function(){se('fn','en',!this.value.trim())});
