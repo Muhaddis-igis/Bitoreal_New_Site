@@ -149,29 +149,37 @@ function restrictEmail(el){el.value=el.value.replace(/[^a-zA-Z0-9@._+\-]/g,'');}
 function genToken(prefix){var t=Date.now().toString(36).slice(-6).toUpperCase();var r=Math.random().toString(36).slice(2,4).toUpperCase();return prefix+'-'+t+r;}
 
 function submitToApi(data){var _key='b6f4a7e7-b7dd-4ea7-b7d7-a9a5f0631e55';var _suc=data._successId,_wrap=data._formWrapId,_err=data._errId;
-  // Friendly labels for known fields; order preserved for the email body
+  // Canonical labels — the ONLY columns Web3Forms will ever receive (strict whitelist)
   var _labels={token:'Token',name:'Name',phone:'Phone',email:'Email',service:'Service',serviceDetail:'Specific Service',budget:'Estimated Budget',city:'City',role:'Role / Position',message:'Message',source:'Source'};
   var _order=['token','name','phone','email','service','serviceDetail','budget','city','role','message','source'];
-  var payload={access_key:_key,subject:'New Bitoreal Request ['+(data.token||'')+'] - '+(data.serviceDetail||data.service||data.source||'Inquiry'),from_name:(data.name||'Website Visitor'),botcheck:data._botcheck||''};
-  // Build phone with country code
+  var payload={access_key:_key,subject:'New Bitoreal Request ['+(data.token||'')+'] - '+(data.serviceDetail||data.service||data.source||'Inquiry'),from_name:(data.name||'Website Visitor')};
+  // reply-to meta: notification emails become directly answerable
+  if(data.email)payload.replyto=data.email;
+  // honeypot: only include if actually tripped (never create an empty column)
+  if(data._botcheck)payload.botcheck=true;
   var _phone=(data.countryCode||'+92')+' '+(data.phone||'');
-  // Forward ordered known fields (only if the form provided them)
-  for(var i=0;i<_order.length;i++){var k=_order[i];if(k==='phone'){if(data.phone!==undefined)payload['Phone']=_phone;continue;}
+  for(var i=0;i<_order.length;i++){var k=_order[i];
+    if(k==='phone'){if(data.phone!==undefined&&data.phone!=='')payload['Phone']=_phone;continue;}
     if(data[k]!==undefined&&data[k]!==''&&data[k]!==null){payload[_labels[k]]=data[k];}}
-  // Forward any extra custom fields the caller added that aren't internal (_*) or already handled
-  var _handled={countryCode:1,_successId:1,_formWrapId:1,_errId:1,_botcheck:1,phone:1};
-  for(var key in data){if(data.hasOwnProperty(key)&&key.charAt(0)!=='_'&&!_handled[key]&&!_labels[key]&&data[key]!==''&&data[key]!=null){var _lbl=key.charAt(0).toUpperCase()+key.slice(1).replace(/([A-Z])/g,' $1');payload[_lbl]=data[key];}}
-  fetch('https://api.web3forms.com/submit',{method:'POST',headers:{'Content-Type':'application/json',Accept:'application/json'},body:JSON.stringify(payload)}).then(function(r){return r.json();}).then(function(j){if(!(j&&j.success))throw new Error('fail');}).catch(function(){if(_suc){var s=document.getElementById(_suc);if(s)s.classList.remove('show');}if(_wrap){var w=document.getElementById(_wrap);if(w)w.style.display='';}if(_err){var e=document.getElementById(_err);if(e)e.style.display='block';}else{alert('Sorry, we could not send your request. Please WhatsApp us at +92 307 0777 007 or try again.');}});}
-
-function updatePhoneCode(id){
-  var s=document.getElementById(id+'Code');
-  if(!s)return;
-  var o=s.options[s.selectedIndex];
-  var fg=document.getElementById(id+'Flag');
-  var cn=document.getElementById(id+'CodeNum');
-  if(fg)fg.textContent=o.getAttribute('data-flag')||'🇵🇰';
-  if(cn)cn.textContent=o.value||'+92';
-}
+  // NOTE: unknown keys are intentionally NOT forwarded — prevents accidental new columns forever
+  fetch('https://api.web3forms.com/submit',{method:'POST',headers:{'Content-Type':'application/json',Accept:'application/json'},body:JSON.stringify(payload)})
+  .then(function(r){return r.json().then(function(j){return {status:r.status,json:j};});})
+  .then(function(res){var j=res.json;
+    if(!(j&&j.success)){var msg=(j&&j.message)?j.message:('HTTP '+res.status);
+      console.error('[Bitoreal] Web3Forms rejected the submission:',msg,j);
+      throw new Error(msg);}
+  })
+  .catch(function(e){var reason=(e&&e.message&&e.message!=='Failed to fetch')?e.message:'Network error';
+    console.error('[Bitoreal] Form submission failed:',reason);
+    if(_suc){var s=document.getElementById(_suc);if(s)s.classList.remove('show');}
+    if(_wrap){var w=document.getElementById(_wrap);if(w)w.style.display='';}
+    if(_err){var el=document.getElementById(_err);if(el){el.style.display='block';
+      el.setAttribute('data-reason',reason);
+      var det=el.querySelector('.f-err-detail');
+      if(!det){det=document.createElement('div');det.className='f-err-detail';det.style.cssText='font-size:11px;opacity:.75;margin-top:4px';el.appendChild(det);}
+      det.textContent='('+reason+')';}}
+    else{alert('Sorry, we could not send your request ('+reason+'). Please WhatsApp us at +92 307 0777 007.');}
+  });}
 
 
 /* ═══ CANONICAL ANCHOR NAVIGATION (centralized) ═══ */
